@@ -1,0 +1,19 @@
+#!/bin/bash
+
+## specify the job and project name
+#SBATCH --job-name=test_job
+
+## specify the required resources
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --gres=gpu:1
+#SBATCH --mem=1Gb
+#SBATCH --time=0-01:00:00
+
+#
+# add your command here, e.g
+#
+spack load   cuda@10.0.130
+nvcc --version
+nvidia-smi
